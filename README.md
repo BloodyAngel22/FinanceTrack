@@ -11,6 +11,8 @@ This project is a simple web application that allows users to track their financ
 - ASP.NET Core
 - Entity Framework Core
 - PostgreSQL
+- dotnet
+- dotnet ef
 
 ## How to run
 
