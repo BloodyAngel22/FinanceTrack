@@ -1,0 +1,59 @@
+@model IEnumerable<FinanceNoteModel>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+	<h3>Finance Track</h3>
+	<table class="table table-striped">
+		<thead>
+				<tr>
+					<th>Shop Name</th>
+					<th>Date Of Purchase</th>
+					<th>Category Name</th>
+					<th>Price</th>
+					<th colspan="2">Actions</th>
+				</tr>
+		</thead>
+		<tbody>
+			@if (Model.Count() > 0)
+			{
+				@foreach (var financeNote in Model)
+				{
+					<tr>
+						<td>@financeNote.ShopName</td>
+						<td>@String.Format("{0:dd MMMM yyyy}", financeNote.DateOfPurchase)</td>
+						<td>@financeNote.CategoryName</td>
+						<td>@String.Format("{0:C}", financeNote.Price)</td>
+						<td>
+							<a class="btn btn-primary" asp-action="EditNote" asp-route-id="@financeNote.Id">Edit</a>
+							<a class="btn btn-danger" asp-action="DeleteNote" asp-route-id="@financeNote.Id">Delete</a>
+						</td>
+					</tr>
+				}
+			}
+			else
+			{
+				<tr class="text-center">
+					<td colspan="6">No data</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+	<div class="text-center">
+		<a class="btn btn-primary" asp-action="AddNote">Add new note</a>
+	</div>
+	<div style="text-align: right; font-weight: 600">
+		<p>Сумма всего: @Model.Sum(x => x.Price)</p>
+	</div>
+	<div>
+		<a asp-action="Filter" class="btn btn-primary">Filters</a>
+		<a asp-action="Index" class="btn btn-primary">Reset filters</a>
+	</div>
+</body>
+
+</html>

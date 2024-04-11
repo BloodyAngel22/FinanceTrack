@@ -1,0 +1,50 @@
+@model FinanceNoteModel
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+	<form asp-action="AddNote" method="post">
+		<div asp-validation-summary="All" class="text-danger"></div>
+		<div class="form-group">
+			<label asp-for="ShopName">Shop Name</label>
+			<input asp-for="ShopName" class="form-control" />
+		</div>
+		<div class="form-group">
+			<label asp-for="DateOfPurchase">Date Of Purchase</label>
+			<input type="date" asp-for="DateOfPurchase" class="form-control" />
+		</div>
+		<div class="form-group">
+			<label asp-for="CategoryName">Category</label>
+			@if (ViewBag.FinanceCategories != null)
+			{
+				<select asp-for="CategoryName" class="form-control" asp-items="@ViewBag.FinanceCategories">
+					<option value="" disabled>Select category</option>
+				</select>
+			}
+			else
+			{
+				<input class="form-control" disabled value="No categories">
+			}
+			<div style="margin-bottom: 5px;"></div>
+			<a asp-action="AddCategory" class="btn btn-primary">Add Category</a>
+			<a asp-action="EditCategory" class="btn btn-success">Edit Category</a>
+			<a asp-action="DeleteCategory" class="btn btn-danger">Delete Category</a>
+		</div>
+		<div class="form-group">
+			<label asp-for="Price">Price</label>
+			<input asp-for="Price" class="form-control" type="number"/>
+		</div>
+		<div>
+			<br>
+			<button type="submit" class="btn btn-primary">Add note</button>
+			<a asp-action="Index" class="btn btn-primary">Back to Track</a>
+		</div>
+	</form>
+</body>
+
+</html>

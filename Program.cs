@@ -1,7 +1,10 @@
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
+builder.Services.AddDbContext<FinanceTrack.Models.ApplicationDbContext>(options => options.UseNpgsql(builder.Configuration["Data:ConnectionString"]));
 
 var app = builder.Build();
 

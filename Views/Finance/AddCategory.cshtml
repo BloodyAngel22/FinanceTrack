@@ -1,0 +1,25 @@
+@model Category
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+	<form asp-action="AddCategory" method="post">
+		<div asp-validation-summary="All" class="text-danger"></div>
+		<div class="form-group">
+			<label asp-for="Name">Category</label>
+			<input asp-for="Name" class="form-control" />
+		</div>
+		<div>
+			<br>
+			<button type="submit" class="btn btn-primary">Add category</button>
+			<a asp-action="AddNote" class="btn btn-primary">Back</a>
+		</div>
+	</form>
+</body>
+
+</html>
