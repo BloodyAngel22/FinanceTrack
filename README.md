@@ -4,7 +4,7 @@
 
 This tracker for a single user.
 
-This project is a simple web application that allows users to track their financial activities. It uses ASP.NET Core, Entity Framework Core, and PostgreSQL. It is still in development and has a lot of work to do. It is still in progress and has some bugs. I will update it as soon as I have time. 
+This project is a simple web application that allows users to track their financial activities. It uses ASP.NET Core, Entity Framework Core, and PostgreSQL. It is still in development and has a lot of work to do. I will update it as soon as I have time. 
 
 ## Dependencies
 
